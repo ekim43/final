@@ -1,0 +1,22 @@
+Patient:
+  first_name: string
+  last_name: string
+  password: string
+  email: string
+  gender: string
+  marital_status: string
+  blood_type: string
+
+Doctor:
+  first_name: string
+  last_name: string
+  specialty: string
+  new_patients: string
+
+Test:
+  name: string
+
+Appointment:
+  patient_id: integer
+  doctor_id: integer
+  test_id: integer
