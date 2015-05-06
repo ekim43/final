@@ -1,0 +1,34 @@
+<!-- 
+<form action="/actors" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="name" class="form-control" id="name">
+  </div>
+  And so on...
+  <button class="btn btn-success" name="button" type="submit">Create Movie</button>
+</form>
+-->
+
+<%= form_for @doctor do |form| %>
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :specialty %>
+    <%= form.text_field :specialty, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :new_patients %>
+    <%= form.text_field :new_patients, class: "form-control" %>
+  </div>
+
+  <%= form.button 'Create Doctor', class: "btn btn-success" %>
+<% end %>
