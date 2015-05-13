@@ -1,0 +1,22 @@
+
+<h1 class="title">
+  <%= @patient.first_name%> <%= @patient.last_name%>
+</h1>
+
+<div class="row">
+  <div class="col-md-6 summary">
+    <h2>Summary</h2>
+    <p><strong>Gender:</strong> <%= @patient.gender %></p>
+    <p><strong>Marital Status:</strong> <%= @patient.marital_status %></p>
+    <p><strong>Blood Type:</strong> <%= @patient.blood_type %></p>
+  </div>
+  <div class="col-md-6 appointments">
+    <h2>Appointments</h2>
+    <ul class="list-unstyled">
+      <% @patient.appointments.each do |appointment| %>
+        <% doctor = Doctor.find_by(id: appointment.doctor_id) %>
+        <li>Dr. <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %> for <%= appointment.test.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

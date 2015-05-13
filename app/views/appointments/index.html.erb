@@ -1,0 +1,22 @@
+<h3 class="page-header">
+  All Appointments
+ </h3>
+
+<div class="row">
+	<% @appointments.each do |appointment| %>
+		<div class="col-sm-6">
+			<div class="thumbnail">
+				<p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+				<p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+				<p><strong>Test:</strong> <%= appointment.test.name %></p>
+					<%= link_to "Edit", edit_appointment_url(appointment), class: 'btn-sm btn-danger' %>
+					<%= link_to "Delete", appointment_url(appointment), method: :delete, class: 'btn-sm btn-danger', data: {confirm: 'Seriously?'} %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+
+
+
+

@@ -1,0 +1,16 @@
+<h3 class="page-header">
+  All Patients
+ </h3>
+
+<ul>
+	<% @patients.each do |patient| %>
+			<li>
+			<p><strong> Patient Name: </strong><%= link_to patient.last_name, patient_url(patient) %></p>
+					<%= link_to "Edit", edit_patient_url(patient), class: 'btn-sm btn-danger' %>
+					<%= link_to "Delete", patient_url(patient), method: :delete, class: 'btn-sm btn-danger', data: {confirm: 'Seriously?'} %>
+			</li><br>
+	<% end %>
+</ul>
+
+
+
