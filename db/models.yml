@@ -1,7 +1,7 @@
 Patient:
   first_name: string
   last_name: string
-  password: string
+  password_digest: string
   email: string
   gender: string
   marital_status: string

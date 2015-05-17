@@ -1,11 +1,13 @@
 class PatientsController < ApplicationController
 
+skip_before_action :auth, only: [:index, :show, :new, :create]
+
   def index
   	@patients = Patient.all
   end
 
   def show
-	@patient = Patient.find_by(id: params["id"])
+	  @patient = Patient.find_by(id: params["id"])
   end
 
   def new
@@ -13,8 +15,12 @@ class PatientsController < ApplicationController
   end
 
   def create
-	Patient.create(params["patient"])
-  	redirect_to patients_url
+	  @patient = Patient.create(params["patient"])
+  	if @patient.valid?
+    redirect_to patients_url, notice: "User created"
+    else
+    render "new"
+    end
   end
 
   def edit
@@ -22,15 +28,15 @@ class PatientsController < ApplicationController
   end
 
   def update
-  	patient = Patient.find_by(id: params["id"])
-  	patient.update(params["patient"])
+  	@patient = Patient.find_by(id: params["id"])
+  	@patient.update(params["patient"])
   	redirect_to patients_url
   end
 
- def destroy
- 	patient = Patient.find_by(id: params["id"])
- 	patient.delete
- 	redirect_to patients_url
- end
+  def destroy
+  	@patient = Patient.find_by(id: params["id"])
+   	@patient.destroy
+   	redirect_to patients_url
+  end
 
 end

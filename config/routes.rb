@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
     resources :doctors
     resources :patients
     resources :appointments
+    resources :sessions
+
+  get "/logout", to: "sessions#destroy"
+
+
       root to: "doctors#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

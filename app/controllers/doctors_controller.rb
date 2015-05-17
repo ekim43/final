@@ -1,5 +1,7 @@
 class DoctorsController < ApplicationController
 
+skip_before_action :auth, only: [:index, :show]
+
   def index
   	@doctors = Doctor.all
   end
