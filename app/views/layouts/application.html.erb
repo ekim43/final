@@ -5,29 +5,28 @@
   <%= javascript_include_tag 'application' %>
 
   <!-- Logo Font -->
-    <link href="http://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" type="text/css">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Righteous" rel="stylesheet" type="text/css">
+    
+  <!-- Bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
   <!-- Font Awesome -->
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="container">
 
-  <div class="container">
-
-        <!-- Alerts -->
+      <!-- Alerts -->
       <% if notice %>
         <div class="alert alert-success" role="alert"><%= notice %></div>
       <% end %>
       <% if alert %>
         <div class="alert alert-danger" role="alert"><%= alert %></div>
       <% end %>
-
       
       <nav class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,6 +57,8 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            
+  <!-- Admin Menu -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 <i class="fa fa-cog"></i>
@@ -69,12 +70,14 @@
                 <li><%= link_to "All Patients", patients_path %></li>
               </ul>
             </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-user"></i>
-                My Account
-              </a>
-            </li>
+            
+            <% if current_patient %>
+              <li><%= link_to current_patient.try(:first_name), root_url %></li>
+              <li><%= link_to "Logout", logout_url %></li>
+            <% else %>
+              <li><%= link_to "Sign In", new_session_url %></li>
+              <% end %>
+
           </ul>
         </div>
       </nav>
@@ -84,3 +87,5 @@
     </div>
   </body>
 </html>
+
+

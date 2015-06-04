@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "password_digest"
     t.string "email"
     t.string "gender"
     t.string "marital_status"
     t.string "blood_type"
-    t.string "password_digest"
   end
 
   create_table "tests", force: :cascade do |t|

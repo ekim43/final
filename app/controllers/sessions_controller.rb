@@ -8,7 +8,7 @@ layout false
         #yes, user exists
         if @patient.authenticate(params["password"])
         session["patient_id"] = @patient.id
-        redirect_to root_url
+        redirect_to patient_url(@patient)
         else
           redirect_to new_session_url, alert: "Wrong password"
         end

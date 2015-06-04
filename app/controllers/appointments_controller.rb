@@ -13,7 +13,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-	Appointment.create(params["appointment"])
+	@patient = Patient.find_by(email: params["email"])
+  Appointment.create(params["appointment"])
   	redirect_to appointments_url
   end
 
