@@ -1,24 +1,22 @@
 <h3 class="page-header">
-  Find a Doctor
+  Find a Doctor Today!
  </h3>
 
 <div class="row">
 	<% @doctors.each do |doctor| %>
-		<div class="col-sm-6">
-			<div class="thumbnail">
-			<a href="/doctors/<%= doctor.id%>"><b><%= doctor.last_name %></b></a>
+		<div class="col-sm-6 col-md-4">
+   			<div class="thumbnail">
+				<%= link_to image_tag(doctor.image, width: "200"), doctor_url(doctor) %>
 				<div class="caption">
-				<p><%= doctor.specialty %></p>
+					<h3><%= link_to doctor.last_name, doctor %></h3>
+					<p><%= doctor.specialty %></p>
 				</div>
-					<%= link_to "Edit", edit_doctor_url(doctor), class: 'btn-sm btn-danger' %>
-					<%= link_to "Delete", doctor_url(doctor), method: :delete, class: 'btn-sm btn-danger', data: {confirm: 'Seriously?'} %>
 			</div>
 		</div>
 	<% end %>
 </div>
 
-<br>
-<%= link_to "Book an Appointment", new_appointment_path, class: 'btn btn-sm btn-success' %>
 
-
-
+			<%#= link_to "Edit", edit_doctor_url(doctor), class: 'btn-sm btn-danger' %>
+			<%#= link_to "Delete", doctor_url(doctor), method: :delete, class: 'btn-sm btn-danger', data: {confirm: 'Seriously?'} %>
+		

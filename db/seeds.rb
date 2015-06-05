@@ -21,11 +21,11 @@ buntman = Patient.create(first_name: "Noah", last_name: "Buntman", password: "pa
 lencz = Patient.create(first_name: "Davin", last_name: "Lencz", password: "password5", email: "dlencz2015@kellogg.northwestern.edu", gender: "male", marital_status: "single", blood_type: "A-")
 
 puts "Creating doctors..."
-brown = Doctor.create(first_name: "Will", last_name: "Brown", specialty: "Family Practice", new_patients: "Yes")
-stevenson = Doctor.create(first_name: "Jess", last_name: "Stevenson", specialty: "OBGYN", new_patients: "Yes")
-haq = Doctor.create(first_name: "Farzana", last_name: "Haq", specialty: "Family Practice", new_patients: "No")
-ohashi = Doctor.create(first_name: "Jason", last_name: "Ohashi", specialty: "Oncology", new_patients: "No")
-chan = Doctor.create(first_name: "Connie", last_name: "Chan", specialty: "Pediatrics", new_patients: "Yes")
+brown = Doctor.create(first_name: "Will", last_name: "Brown", specialty: "Family Practice", new_patients: "Yes", image: "brown.jpg")
+stevenson = Doctor.create(first_name: "Jess", last_name: "Stevenson", specialty: "OBGYN", new_patients: "Yes", image: "stevenson.jpg")
+haq = Doctor.create(first_name: "Farzana", last_name: "Haq", specialty: "Family Practice", new_patients: "No", image: "haq.jpg")
+ohashi = Doctor.create(first_name: "Jason", last_name: "Ohashi", specialty: "Oncology", new_patients: "No", image: "ohashi.jpg")
+chan = Doctor.create(first_name: "Connie", last_name: "Chan", specialty: "Pediatrics", new_patients: "Yes", image: "chan.jpg")
 
 puts "Creating tests..."
 physical = Test.create(name: "Physical")

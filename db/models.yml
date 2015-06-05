@@ -12,6 +12,7 @@ Doctor:
   last_name: string
   specialty: string
   new_patients: string
+  image: string
 
 Test:
   name: string

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "last_name"
     t.string "specialty"
     t.string "new_patients"
+    t.string "image"
   end
 
   create_table "patients", force: :cascade do |t|
