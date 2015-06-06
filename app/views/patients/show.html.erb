@@ -15,11 +15,16 @@
     <ul class="list-unstyled">
       <% @patient.appointments.each do |appointment| %>
         <% doctor = Doctor.find_by(id: appointment.doctor_id) %>
-        <li>Dr. <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %> for <%= appointment.test.name %></li>
-      <% end %>
+        <li>Dr. <%= appointment.doctor.last_name %> for <%= appointment.test.name %> on <%= appointment.date %> at <%= appointment.time.to_formatted_s(:time) %> <%= link_to "Update", edit_appointment_url(appointment), class: 'btn btn-sm btn-primary' %> <%= link_to "Delete", appointment_url(appointment), method: :delete, class: 'btn btn-sm btn-danger', data: {confirm: 'Seriously?'} %>
+        <br><br>
+        </li>
+    <% end %>
+
+<br>
+<%= link_to "Book a New Appointment", new_appointment_path, class: 'btn btn-sm btn-success' %>
+
     </ul>
   </div>
 </div>
 
-<br>
-<%= link_to "Book an Appointment", new_appointment_path, class: 'btn btn-sm btn-success' %>
+

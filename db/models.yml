@@ -6,11 +6,13 @@ Patient:
   gender: string
   marital_status: string
   blood_type: string
+  admin: boolean
 
 Doctor:
   first_name: string
   last_name: string
   specialty: string
+  education: string
   new_patients: string
   image: string
 
@@ -21,3 +23,5 @@ Appointment:
   patient_id: integer
   doctor_id: integer
   test_id: integer
+  date: date
+  time: time

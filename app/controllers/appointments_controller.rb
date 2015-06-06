@@ -5,7 +5,8 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-	@appointment = Appointment.find_by(id: params["id"])
+	@patient = current_patient
+  @appointment = Appointment.find_by(id: params["id"])
   end
 
   def new
@@ -20,19 +21,19 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-  	@appointment = Appointment.find_by(id: params["id"])
+    @appointment = Appointment.find_by(id: params["id"])
   end
 
   def update
   	appointment = Appointment.find_by(id: params["id"])
   	appointment.update(params["appointment"])
-  	redirect_to appointments_url
+  redirect_to patient_url(current_patient), notice: "Appointment updated"
   end
 
  def destroy
  	appointment = Appointment.find_by(id: params["id"])
- 	appointment.delete
- 	redirect_to appointments_url
+ 	appointment.destroy
+ 	redirect_to patient_url(current_patient), alert: "Appointment cancelled"
  end
 
 end

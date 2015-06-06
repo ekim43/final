@@ -7,15 +7,10 @@
   <div class="col-md-6 summary">
     <h2>Summary</h2>
     <p><strong>Specialty:</strong> <%= @doctor.specialty %></p>
+    <p><strong>Education:</strong> <%= @doctor.education %></p>
     <p><strong>Accepting New Patients:</strong> <%= @doctor.new_patients %></p>
   </div>
   <div class="col-md-6 appointments">
-    <h2>Appointments</h2>
-    <ul class="list-unstyled">
-      <% @doctor.appointments.each do |appointment| %>
-        <% patient = Patient.find_by(id: appointment.patient_id) %>
-        <li><%= appointment.patient.first_name %> <%= appointment.patient.last_name %> for <%= appointment.test.name %></li>
-      <% end %>
-    </ul>
+    <%= link_to "Book an Appointment", new_appointment_path, class: 'btn btn-sm btn-success' %>
   </div>
 </div>

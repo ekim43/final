@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "patient_id"
     t.integer "doctor_id"
     t.integer "test_id"
+    t.date    "date"
+    t.time    "time"
   end
 
   add_index "appointments", ["doctor_id"], name: "index_appointments_on_doctor_id"
@@ -29,16 +31,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "specialty"
     t.string "new_patients"
     t.string "image"
+    t.string "education"
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "password_digest"
-    t.string "email"
-    t.string "gender"
-    t.string "marital_status"
-    t.string "blood_type"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "password_digest"
+    t.string  "email"
+    t.string  "gender"
+    t.string  "marital_status"
+    t.string  "blood_type"
+    t.boolean "admin",           default: false
   end
 
   create_table "tests", force: :cascade do |t|

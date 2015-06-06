@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6 appointments">
+    <h2>Appointments</h2>
+    <ul class="list-unstyled">
+      <% @patient.appointments.each do |appointment| %>
+        <% doctor = Doctor.find_by(id: appointment.doctor_id) %>
+        <li>Dr. <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %> for <%= appointment.test.name %> on <%= appointment.date %> at <%= appointment.time.to_formatted_s(:time) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
